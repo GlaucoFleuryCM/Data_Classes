@@ -14,7 +14,6 @@ def Belongs(theta, position, label):
 def Perceptron(T, theta, lr, data):
     for t in range(T):
         y = +1
-
         for i in range(60):
             if (i >= 30):
                 y = -1

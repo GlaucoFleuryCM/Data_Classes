@@ -2,8 +2,8 @@ import matplotlib.pyplot as mpl
 import numpy as np
 
 def Function(theta, x):
-    y = (theta[1] / theta[2]) * x
-    y += theta[0] / theta[2]
+    y = (theta[0] / theta[1]) * x
+    y += theta[2] / theta[1]
 
     return -y
 
@@ -21,5 +21,9 @@ def Gráfico(points, theta):
 
     ax.plot(X, Y, label = 'Perceptron', color = 'black')
 
+    mpl.title('Algoritmo do Perceptron em ação')
+    mpl.xlabel('X')
+    mpl.ylabel('Y')
+    mpl.legend()
     mpl.show()    
 

@@ -12,8 +12,6 @@ theta = (theta2, theta1, theta0)
 #trazendo o data_set pro treinamento;
 Data = Gen_Data()
 
-Gráfico(Data, theta)
-
 #inicializando theta e treinando o perceptron;
 theta = np.asanyarray(theta)
 theta = Perceptron(iterations, theta, learning_rate, Data)
