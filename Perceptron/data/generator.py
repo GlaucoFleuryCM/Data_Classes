@@ -1,7 +1,6 @@
 import numpy as np
 import random
 import pandas as pd
-import pdb
 
 def Gen_Data():
     #randomiza os centros dos dados em x;
@@ -21,8 +20,6 @@ def Gen_Data():
     Y = np.append(Y1, Y2)
     aux = np.full(60,1)
     Data = np.array([X, Y, aux])
-
-    pdb.set_trace()
 
     return Data
 
