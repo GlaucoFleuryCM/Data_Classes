@@ -1,20 +1,25 @@
 import numpy as np
-from data.generator import Gen_Data
+import pandas as pd
+from data.generator import Gen_Data, Data_3D
 from perceptron.perception import Perceptron
-from visualização.graphics import Gráfico
+from visualização.graphics import Gráfico_2D, Gráfico_3D
 
 #lendo os hiperparâmetros pro perceptron;
 learning_rate = float(input("Qual o learning rate desejado? "))
 iterations = int(input("Quantas iterações sobre o dataset você deseja? "))
-theta2, theta1, theta0 = map(float, input("Valores para \u03B82, \u03B81 e \u03B80, respectivamente: ").split())
-theta = (theta2, theta1, theta0)
+flag = input("2D ou 3D? ")
 
-#trazendo o data_set pro treinamento;
-Data = Gen_Data()
+#separando as duas classes
+if (flag == '2D'):
+    Data = Gen_Data()
+    theta = np.zeros(3)
+    theta = Perceptron(iterations, theta, learning_rate, Data, 60, 30)
 
-#inicializando theta e treinando o perceptron;
-theta = np.asanyarray(theta)
-theta = Perceptron(iterations, theta, learning_rate, Data)
+    Gráfico_2D(Data, theta)
+else:
+    Data = Data_3D()
+    theta = np.zeros(4)
+    theta = Perceptron(iterations, theta, learning_rate, Data, 100, 50)
 
-#mostrando no gráfico o resultado;
-Gráfico(Data, theta)
+    Gráfico_3D(Data, theta)
+
