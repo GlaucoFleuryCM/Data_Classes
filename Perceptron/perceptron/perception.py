@@ -12,8 +12,6 @@ def Belongs(theta, position, label):
 #size = quantos exemplos tomar no data_set
 #lr = learning rate
 def Perceptron(T, theta, lr, data, size, wall):
-    pdb.set_trace()
-
     #pegando a matriz de dados pro caso 3D;
     if (size == 100):
         data = data.to_numpy().T
