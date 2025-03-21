@@ -1,7 +1,7 @@
 import numpy as np
 
 #vê se classificamos o ponto errado ou certo
-def Belongs(theta, position, label):
+def Loss(theta, position, label):
     aux = np.dot(theta, position)
     aux = aux * label
 
@@ -29,7 +29,7 @@ def Perceptron(T, theta, lr, data, size, wall):
             else:
                 y = 1    
 
-            if (Belongs(theta,data[:,i],y) <= 0):
+            if (Loss(theta,data[:,i],y) <= 0):
                 theta = theta + y * lr * data[:,i]
                 flag = 1
 

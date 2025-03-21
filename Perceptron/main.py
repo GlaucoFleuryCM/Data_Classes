@@ -4,8 +4,6 @@ from data.generator import Gen_Data, Data_3D
 from perceptron.perception import Perceptron
 from visualização.graphics import Gráfico_2D, Gráfico_3D
 
-#lendo os hiperparâmetros pro perceptron;
-learning_rate = float(input("Qual o learning rate desejado? "))
 iterations = int(input("Quantas iterações sobre o dataset você deseja? "))
 flag = input("2D ou 3D? ")
 
@@ -13,13 +11,13 @@ flag = input("2D ou 3D? ")
 if (flag == '2D'):
     Data = Gen_Data()
     theta = np.zeros(3)
-    theta = Perceptron(iterations, theta, learning_rate, Data, 60, 30)
+    theta = Perceptron(iterations, theta, 1, Data, 60, 30)
 
     Gráfico_2D(Data, theta)
 else:
     Data = Data_3D()
     theta = np.zeros(4)
-    theta = Perceptron(iterations, theta, learning_rate, Data, 100, 50)
+    theta = Perceptron(iterations, theta, 1, Data, 100, 50)
 
     Gráfico_3D(Data, theta)
 
